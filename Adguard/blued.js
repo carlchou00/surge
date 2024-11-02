@@ -38,8 +38,9 @@ const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
 const recommend = /^https:\/\/social\.blued\.cn\/users\/recommend/;
 const recommend2 = /^https:\/\/220\.249\.135\.81\/users\/recommend/;
 const splash = /^https:\/\/argo\.blued\.cn\/blued\/splash/;
-const recLive = /^https:\/\/116\.196\.137\.183\/users\?aaid/;
-const recLive1 = /^https:\/\/social\.blued\.cn\/users\?aaid/;
+const recLive = /^https:\/\/social\.blued\.cn\/users\?aaid/;
+const recLive1 = /^https:\/\/116\.196\.137\.183\/users\?aaid/;
+const recLive2 = /^https:\/\/220\.249\.135\.81\/users\?aaid/;
 const promote = /^https:\/\/220\.249\.135\.81\/blued\/promote/;
 const youmiss = /^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face/;
 
@@ -82,7 +83,23 @@ if (promote.test($request.url) && anye.data && anye.data.length > 0) {
 }
 
 // 信息流直播推荐
+if ((recLive.test($request.url) && anye.extra) {
+    // anye.extra.adms_operating = [];
+    // anye.extra.nearby_dating = [];
+    // anye.extra.adms_user = [];
+    anye.extra = {};
+}
+
+// 信息流直播推荐
 if ((recLive1.test($request.url) && anye.extra) {
+    // anye.extra.adms_operating = [];
+    // anye.extra.nearby_dating = [];
+    // anye.extra.adms_user = [];
+    anye.extra = {};
+}
+
+// 信息流直播推荐
+if ((recLive2.test($request.url) && anye.extra) {
     // anye.extra.adms_operating = [];
     // anye.extra.nearby_dating = [];
     // anye.extra.adms_user = [];
