@@ -82,9 +82,11 @@ if (promote.test($request.url) && anye.data && anye.data.length > 0) {
 }
 
 // 信息流直播推荐
-if ((recLive.test($request.url) || recLive1.test($request.url) && anye.extra) {
-    anye.extra.adms_operating = [];
-    anye.extra.adms_user = [];
+if ((recLive1.test($request.url) && anye.extra) {
+    // anye.extra.adms_operating = [];
+    // anye.extra.nearby_dating = [];
+    // anye.extra.adms_user = [];
+    anye.extra = {};
 }
 
 $done({ body: JSON.stringify(anye) });
