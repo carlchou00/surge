@@ -21,14 +21,18 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/social\.blued\.cn\/users\/shadow url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\/.*\/basi url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/argo\.blued\.cn\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/argo\.blued\.cn\/blued\/splash url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 [mitm]
 hostname = *.blued.*
 *************************************/
 var anye = JSON.parse($response.body);
+
 const vip1 = /^https:\/\/social\.blued\.cn\/users\/.*\/setting/;
 const vip2 = /^https:\/\/social\.blued\.cn\/users\/shadow/;
 const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
 const recommend = /^https:\/\/argo\.blued\.cn\/users\/recommend/;
+const splash = /^https:\/\/argo\.blued\.cn\/blued\/splash/;
+
 if (vip1.test($request.url) && anye.data && anye.data.length > 0) {
     // 设置
     anye.data.forEach((item) => {
@@ -38,17 +42,27 @@ if (vip1.test($request.url) && anye.data && anye.data.length > 0) {
         item.black_allowed_count = 999999;
     })
 }
+
 if (vip2.test($request.url) && anye.data && anye.data.length > 0) {
     // 地图显示头像和影子功能
     anye.data[0].is_open_shadow = 1;
     anye.data[0].has_right = 1;
 }
+
 if (vip3.test($request.url) && anye.data && anye.data.length > 0) {
     // 聊天界面查看会员隐藏的距离
     anye.data[0].is_hide_distance = 0;
 }
+
 if (recommend.test($request.url) && anye.data && anye.data.length > 0) {
     // 首页推荐
     anye.data = [];
 }
+
+if (splash.test($request.url) && anye.data && anye.data.length > 0) {
+    // 开屏广告
+    anye.data = [];
+    anye.extra = {};
+}
+
 $done({ body: JSON.stringify(anye) });
