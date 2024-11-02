@@ -27,6 +27,7 @@ var anye = JSON.parse($response.body);
 const vip1 = /^https:\/\/social\.blued\.cn\/users\/.*\/setting/;
 const vip2 = /^https:\/\/social\.blued\.cn\/users\/shadow/;
 const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
+const recommend = /^https:\/\/argo\.blued\.cn\/users\/recommend/;
 if (vip1.test($request.url) && anye.data && anye.data.length > 0) {
     // 设置
     anye.data.forEach((item) => {
@@ -44,5 +45,9 @@ if (vip2.test($request.url) && anye.data && anye.data.length > 0) {
 if (vip3.test($request.url) && anye.data && anye.data.length > 0) {
     // 聊天界面查看会员隐藏的距离
     anye.data[0].is_hide_distance = 0;
+}
+if (recommend.test($request.url) && anye.data && anye.data.length > 0) {
+    // 首页推荐
+    anye.data = [];
 }
 $done({ body: JSON.stringify(anye) });
