@@ -23,7 +23,7 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/argo\.blued\.cn\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/argo\.blued\.cn\/blued\/splash url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/220\.249\.135\.81\/users\? url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/220\.249\.135\.81\/users\?extra_info url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 [mitm]
 hostname = *.blued.*
 *************************************/
@@ -35,7 +35,7 @@ const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
 const recommend = /^https:\/\/argo\.blued\.cn\/users\/recommend/;
 const recommend2 = /^https:\/\/220\.249\.135\.81\/users\/recommend/;
 const splash = /^https:\/\/argo\.blued\.cn\/blued\/splash/;
-const recLive = /^https:\/\/220\.249\.135\.81\/users\?/;
+const recLive = /^https:\/\/220\.249\.135\.81\/users\?extra_info/;
 
 
 if (vip1.test($request.url) && anye.data && anye.data.length > 0) {
@@ -71,7 +71,8 @@ if (splash.test($request.url) && anye.data && anye.data.length > 0) {
 }
 
 // 信息流直播推荐
-if (recLive.test($request.url) && anye.extra) {
+if (recLive.test($request.url)) {
+    anye.data = [];
     anye.extra.adms_operating = [];
     anye.extra.adms_user = [];
 }
