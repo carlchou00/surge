@@ -21,7 +21,9 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/social\.blued\.cn\/users\/shadow url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\/.*\/basi url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/argo\.blued\.cn\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/220\.249\.135\.81\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/argo\.blued\.cn\/blued\/splash url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/220\.249\.135\.81/users url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 [mitm]
 hostname = *.blued.*
 *************************************/
@@ -31,7 +33,13 @@ const vip1 = /^https:\/\/social\.blued\.cn\/users\/.*\/setting/;
 const vip2 = /^https:\/\/social\.blued\.cn\/users\/shadow/;
 const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
 const recommend = /^https:\/\/argo\.blued\.cn\/users\/recommend/;
+const recommend2 = /^https:\/\/220\.249\.135\.81\/users\/recommend/;
 const splash = /^https:\/\/argo\.blued\.cn\/blued\/splash/;
+const recLive = /^https:\/\/220\.249\.135\.81/users/;
+
+if (recLive.test($request.url) && anye.data && anye.data.length > 0) {
+    anye.extra = {};
+}
 
 if (vip1.test($request.url) && anye.data && anye.data.length > 0) {
     // 设置
@@ -54,7 +62,7 @@ if (vip3.test($request.url) && anye.data && anye.data.length > 0) {
     anye.data[0].is_hide_distance = 0;
 }
 
-if (recommend.test($request.url) && anye.data && anye.data.length > 0) {
+if ((recommend.test($request.url) || recommend2.test($request.url)) && anye.data && anye.data.length > 0) {
     // 首页推荐
     anye.data = [];
 }
