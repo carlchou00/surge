@@ -84,24 +84,27 @@ if (promote.test($request.url) && anye.data && anye.data.length > 0) {
 }
 
 // 信息流直播推荐
-if ((recLive.test($request.url) && anye.extra) {
-    anye.extra.adms_operating = [];
-    anye.extra.nearby_dating = [];
-    anye.extra.adms_user = [];
+if ((recLive.test($request.url) && anye.data && anye.extra) {
+    anye.data.extra.adms_operating = [];
+    anye.data.extra.nearby_dating = [];
+    anye.data.extra.adms_user = [];
+    anye.data = [];
 }
 
 // 信息流直播推荐
-if ((recLive1.test($request.url) && anye.extra) {
-    anye.extra.adms_operating = [];
-    anye.extra.nearby_dating = [];
-    anye.extra.adms_user = [];
+if ((recLive1.test($request.url) && anye.data && anye.extra) {
+    anye.data.extra.adms_operating = [];
+    anye.data.extra.nearby_dating = [];
+    anye.data.extra.adms_user = [];
+    anye.data = [];
 }
 
 // 信息流直播推荐
-if ((recLive2.test($request.url) && anye.extra) {
-    anye.extra.adms_operating = [];
-    anye.extra.nearby_dating = [];
-    anye.extra.adms_user = [];
+if ((recLive2.test($request.url) && anye.data && anye.extra) {
+    anye.data.extra.adms_operating = [];
+    anye.data.extra.nearby_dating = [];
+    anye.data.extra.adms_user = [];
+    anye.data = [];
 }
 
 $done({ body: JSON.stringify(anye) });
