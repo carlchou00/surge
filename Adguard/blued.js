@@ -25,7 +25,7 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/argo\.blued\.cn\/blued\/splash url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/users\?extra_info url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 [mitm]
-hostname = *.blued.*
+hostname = *.blued.*,220.249.135.81,116.196.137.183
 *************************************/
 var anye = JSON.parse($response.body);
 
