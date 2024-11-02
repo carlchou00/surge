@@ -23,10 +23,11 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/social\.blued\.cn\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/argo\.blued\.cn\/blued\/splash url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/116\.196\.137\.183\/users\?aaid url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/blued\/promote url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\?aaid url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/116\.196\.137\.183\/users\?aaid url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
+^https:\/\/220\.249\.135\.81\/users\?aaid url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 [mitm]
 hostname = *.blued.*,220.249.135.81,116.196.137.183
 *************************************/
