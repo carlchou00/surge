@@ -18,7 +18,6 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 
 [rewrite_local]
 ^https:\/\/social\.blued\.cn\/users\/.*\/setting url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/220\.249\.135\.81\/users\/89023383 url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\/shadow url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\/.*\/basi url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/social\.blued\.cn\/users\/recommend url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
@@ -32,8 +31,6 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/116\.196\.137\.183\/blued\/promote url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/users\/nearby\/new_face url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/220\.249\.135\.81\/blued\/floats url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/116\.196\.137\.183\/blued\/floats url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 
 [mitm]
 hostname = *.blued.*,220.249.135.81,116.196.137.183
@@ -41,7 +38,7 @@ hostname = *.blued.*,220.249.135.81,116.196.137.183
 var anye = JSON.parse($response.body);
 
 const vip1 = /^https:\/\/social\.blued\.cn\/users\/.*\/setting/;
-const vip4 = /^https:\/\/220\.249\.135\.81\/users\/89023383/;
+//const vip4 = /^https:\/\/220\.249\.135\.81\/users\/89023383/;
 const vip2 = /^https:\/\/social\.blued\.cn\/users\/shadow/;
 const vip3 = /^https:\/\/social\.blued\.cn\/users\/.*\/basi/;
 const recommend = /^https:\/\/social\.blued\.cn\/users\/recommend/;
@@ -55,12 +52,12 @@ const promote = /^https:\/\/220\.249\.135\.81\/blued\/promote/;
 const promote1 = /^https:\/\/116\.196\.137\.183\/blued\/promote/;
 const youmiss = /^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face/;
 const youmiss1 = /^https:\/\/220\.249\.135\.81\/users\/nearby\/new_face/;
-const floats = /^https:\/\/220\.249\.135\.81\/blued\/floats/;
-const floats1 = /^https:\/\/116\.196\.137\.183\/blued\/floats/;
-const banners = /^https:\/\/220\.249\.135\.81\/ticktocks\/banner/;
-const banners1 = /^https:\/\/116\.196\.137\.183\/ticktocks\/banner/;
-const live = /^https:\/\/220\.249\.135\.81\/live\/cates-v2\/0/;
-const live1 = /^https:\/\/116\.196\.137\.183\/live\/cates-v2\/0/;
+//const floats = /^https:\/\/220\.249\.135\.81\/blued\/floats/;
+//const floats1 = /^https:\/\/116\.196\.137\.183\/blued\/floats/;
+//const banners = /^https:\/\/220\.249\.135\.81\/ticktocks\/banner/;
+//const banners1 = /^https:\/\/116\.196\.137\.183\/ticktocks\/banner/;
+//const live = /^https:\/\/220\.249\.135\.81\/live\/cates-v2\/0/;
+//const live1 = /^https:\/\/116\.196\.137\.183\/live\/cates-v2\/0/;
 
 
 if ((vip1.test($request.url)) && anye.data && anye.data.length > 0) {
@@ -104,16 +101,6 @@ if ((promote.test($request.url) || promote.test($request.url)) && anye.data && a
     anye.data = [];
 }
 
-if ((floats.test($request.url) || floats1.test($request.url)) && anye.extra) {
-    // 广告
-    anye.extra.is_after_splash = 0;
-}
-
-if ((banners.test($request.url) || banners1.test($request.url)) && anye.data && anye.data.length > 0) {
-    // banners
-    anye.data = [];
-}
-
 
 // 信息流直播推荐
 if ((recLive.test($request.url) || recLive1.test($request.url) || recLive2.test($request.url)) && anye) {
@@ -127,18 +114,6 @@ if ((recLive.test($request.url) || recLive1.test($request.url) || recLive2.test(
         anye.extra.adms_operating = [];
         anye.extra.nearby_dating = [];
         anye.extra.adms_user = [];
-    }
-}
-
-// 直播
-if ((live.test($request.url) || live1.test($request.url)) && anye) {
-    if (anye.data && anye.data.extra) {
-        anye.data.extra.hasmore = 0;
-        anye.data = []
-    }
-
-    if (anye.extra) {
-        anye.extra.hasmore = 0;
     }
 }
 
