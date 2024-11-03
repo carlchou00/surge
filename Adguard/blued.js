@@ -74,8 +74,6 @@ if ((vip1.test($request.url) || vip4.test($request.url) ) && anye.data && anye.d
         item.is_traceless_access = 1;
         item.is_hide_distance = 1;
         item.black_allowed_count = 999999;
-        item.vip_grade = 7;
-        item.is_vip_annual = 1;
     })
 }
 
