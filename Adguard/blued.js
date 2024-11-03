@@ -67,7 +67,7 @@ const live = /^https:\/\/220\.249\.135\.81\/live\/cates-v2\/0/;
 const live1 = /^https:\/\/116\.196\.137\.183\/live\/cates-v2\/0/;
 
 
-if ((vip1.test($request.url) || vip4.test($request.url) ) && anye.data && anye.data.length > 0) {
+if ((vip1.test($request.url)) && anye.data && anye.data.length > 0) {
     // 设置
     anye.data.forEach((item) => {
         item.is_global_view_secretly = 1;
