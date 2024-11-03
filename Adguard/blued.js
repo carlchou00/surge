@@ -29,8 +29,6 @@ blued功能脚本  悄悄查看消息  地图无需展示头像即可查看全�
 ^https:\/\/220\.249\.135\.81\/users\?aaid url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/220\.249\.135\.81\/blued\/promote url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 ^https:\/\/116\.196\.137\.183\/blued\/promote url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
-^https:\/\/220\.249\.135\.81\/users\/nearby\/new_face url script-response-body https://raw.githubusercontent.com/carlchou00/surge/refs/heads/main/Adguard/blued.js
 
 [mitm]
 hostname = *.blued.*,220.249.135.81,116.196.137.183
@@ -50,8 +48,8 @@ const recLive1 = /^https:\/\/116\.196\.137\.183\/users\?aaid/;
 const recLive2 = /^https:\/\/220\.249\.135\.81\/users\?aaid/;
 const promote = /^https:\/\/220\.249\.135\.81\/blued\/promote/;
 const promote1 = /^https:\/\/116\.196\.137\.183\/blued\/promote/;
-const youmiss = /^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face/;
-const youmiss1 = /^https:\/\/220\.249\.135\.81\/users\/nearby\/new_face/;
+// const youmiss = /^https:\/\/116\.196\.137\.183\/users\/nearby\/new_face/;
+// const youmiss1 = /^https:\/\/220\.249\.135\.81\/users\/nearby\/new_face/;
 //const floats = /^https:\/\/220\.249\.135\.81\/blued\/floats/;
 //const floats1 = /^https:\/\/116\.196\.137\.183\/blued\/floats/;
 //const banners = /^https:\/\/220\.249\.135\.81\/ticktocks\/banner/;
